@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, data=None):
+    def __init__(self, data = None):
         self.data = data
         self.next = None
 
@@ -18,12 +18,26 @@ class stack:
         while tem_head is not None:
             print(tem_head.data, end="")
             tem_head = tem_head.next
-        print()
+        print()    
 
+    def ispolindrome(self):
+        l = []
+        tem_head = self.head
+        while tem_head is not None:
+            l= l.append(tem_head.data)
+            tem_head = tem_head.next
+        return l
+        
 
+                   
 if __name__ == "__main__":
     S = stack()
     str = input()
     for i in str:
         S.push(i)
     S.reverse()
+    if (str==S.ispolindrome()):
+        print("Palindrome")
+    else:
+        print("Not Palindrome.")
+
