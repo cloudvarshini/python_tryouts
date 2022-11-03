@@ -8,6 +8,9 @@ particular value.
 Then, use "Test Run" and "Submit" to run the test cases
 at the bottom."""
 
+from email import header
+
+
 class Element(object):
     def __init__(self, value):
         self.value = value
@@ -52,12 +55,25 @@ class LinkedList(object):
         Assume the first position is "1".
         Inserting at position 3 means between
         the 2nd and 3rd elements."""
-        pass
+
+        if (position==1):
+            current = self.head
+            new_element.next=current
+            self.head=new_element 
+        else:
+            current = self.head
+            for new_position in range(0,position-1):
+                    current = current.next
+            new_element.next = current.next
+            current.next = new_element
     
     
     def delete(self, value):
         """Delete the first node with a given value."""
         pass
+            
+
+
 
 # Test cases
 # Set up some Elements
@@ -78,9 +94,9 @@ print (ll.head.next.next.value)
 print (ll.get_position(3).value)
 
 # Test insert
-##ll.insert(e4,3)
+ll.insert(e4,3)
 # Should print 4 now
-##print (ll.get_position(3).value)
+print (ll.get_position(3).value)
 
 # Test delete
 ##ll.delete(1)
