@@ -43,10 +43,10 @@ class LinkedList(object):
         Return "None" if position is not in the list."""
         if position <= self.get_size():
             current = self.head
-            for current_position in range(position):
+            for current_position in range(1,position):
                 if current.next:
                     current = current.next
-            return current        
+            return current
         else:
             return None
     
@@ -70,7 +70,28 @@ class LinkedList(object):
     
     def delete(self, value):
         """Delete the first node with a given value."""
-        pass
+        current = self.head
+        previous = None
+        while current.next:
+            if(current.value!=value):
+                previous = current
+                current = current.next
+            else:
+                break
+        if previous == None:
+            self.head = current.next
+        else:
+            previous.next = current.next
+        del current
+    def display(self):
+        start = self.head
+        while start:
+            print(start.value, end= "->")
+            start=start.next
+        print()
+
+
+
             
 
 
@@ -98,11 +119,13 @@ ll.insert(e4,3)
 # Should print 4 now
 print (ll.get_position(3).value)
 
+ll.display()
 # Test delete
-##ll.delete(1)
+ll.delete(1)
+ll.display()
 # Should print 2 now
-##print (ll.get_position(1).value)
+print (ll.get_position(1).value)
 # Should print 4 now
-##print (ll.get_position(2).value)
+print (ll.get_position(2).value)
 # Should print 3 now
-##print (ll.get_position(3).value)
+print (ll.get_position(3).value)
