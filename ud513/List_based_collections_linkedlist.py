@@ -117,7 +117,7 @@ print (ll.get_position(3).value)
 # Test insert
 ll.insert(e4,3)
 # Should print 4 now
-print (ll.get_position(3).value)
+print (ll.get_position(4).value)
 
 ll.display()
 # Test delete
@@ -126,6 +126,6 @@ ll.display()
 # Should print 2 now
 print (ll.get_position(1).value)
 # Should print 4 now
-print (ll.get_position(2).value)
 # Should print 3 now
 print (ll.get_position(3).value)
+print (ll.get_position(2).value)
